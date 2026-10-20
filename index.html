@@ -591,7 +591,7 @@ function renderResults(p,context={}){
   grid.innerHTML=ranked.map((t,i)=>`<article class="tea-card ${!referenceOnly&&i===0&&!t.tied?'winner':''}">
     <div class="rank">${referenceOnly?'風味參考':t.tied?(t.rank===1?'並列首選':`並列第 ${t.rank} 名`):context.drinkingContext?(i===0?'風味首選':'風味推薦 '+t.rank):(t.rank===1?'第一推薦':'TOP '+t.rank)}</div>
     <h3>${t.name}</h3>
-    <div class="meta"><span>南投・${t.area}</span><span>｜</span><span>${t.category}</span><span>｜</span><span>${t.id}</span></div>
+    <div class="meta"><span>南投・${t.area}</span><span>｜</span><span>${t.category}</span></div>
     ${referenceOnly?'':`<div class="score-row"><span class="score ${equalMatches?'score-equal':''}">${equalMatches?'同等符合':t.match+'%'}</span><span class="score-label">風味符合度</span></div>`}
     <div class="flavor-profile">${flavorRow('苦度',t.bitterness)}${flavorRow('澀度',t.astringency)}${flavorRow('香氣',t.aroma)}${flavorRow('回甘',t.aftertaste)}</div>
     <p class="reason">${referenceOnly?t.description:reasonFor(t,p,context)}</p>
