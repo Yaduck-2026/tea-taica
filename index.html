@@ -79,7 +79,7 @@
 
     .region-hero{display:grid;grid-template-columns:.88fr 1.12fr;gap:34px;align-items:center;margin-bottom:30px}.region-intro{padding:12px 6px}.region-intro h2{margin-bottom:13px}.region-intro p{color:var(--muted);margin:0 0 22px}.region-pills{display:flex;flex-wrap:wrap;gap:8px}.region-pill{padding:8px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--forest);font-size:.82rem;font-weight:600}
     .map-card{padding:12px;border-radius:28px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}.map-card img{display:block;width:100%;height:auto;border-radius:18px}
-    .region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:26px}.region-card{position:relative;overflow:hidden;padding:22px;border-radius:23px;background:rgba(255,255,255,.88);border:1px solid var(--line);box-shadow:var(--soft)}.region-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--region-color,var(--forest))}.region-no{font-family:"Cormorant Garamond",serif;font-size:.85rem;color:var(--gold);letter-spacing:.1em}.region-card h3{margin:6px 0 12px;font-family:"Noto Serif TC",serif;font-size:1.25rem;font-weight:600}.region-card dl{margin:0;display:grid;gap:10px}.region-card dt{font-size:.76rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.region-card dd{margin:2px 0 0;color:#3f4a44;font-size:.9rem}.region-card .feature{display:inline-flex;margin-top:16px;padding:7px 10px;border-radius:999px;background:rgba(197,160,89,.10);color:#876d3f;font-size:.78rem;font-weight:700}
+    .region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:26px}.region-card{position:relative;overflow:hidden;padding:22px;border-radius:23px;background:rgba(255,255,255,.88);border:1px solid var(--line);box-shadow:var(--soft)}.region-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--region-color,var(--forest))}.region-card h3{margin:6px 0 12px;font-family:"Noto Serif TC",serif;font-size:1.25rem;font-weight:600}.region-card dl{margin:0;display:grid;gap:10px}.region-card dt{font-size:.76rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.region-card dd{margin:2px 0 0;color:#3f4a44;font-size:.9rem}.region-card .feature{display:inline-flex;margin-top:16px;padding:7px 10px;border-radius:999px;background:rgba(197,160,89,.10);color:#876d3f;font-size:.78rem;font-weight:700}
 
     footer{padding:26px 0 38px;color:var(--muted);font-size:.8rem}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(46,58,52,.08);padding-top:24px}
 
@@ -94,9 +94,17 @@
     @media (max-width:760px){.hero-desc-break{display:none}.hero-cn,.hero-desc,.page-desc,.guide-copy p,.reason,.detail,.region-card dd{word-break:normal;overflow-wrap:anywhere}}
 
     /* 嚴選茗家：沿用紙色、森林綠與暖金色，分類只更新場域清單。 */
+    .region-card{display:flex;flex-direction:column;align-items:flex-start}
+    .region-more{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:auto;padding:18px 0 0;border:0;background:transparent;color:var(--forest);font-weight:700}
+    .region-more:hover{color:var(--amber)}
+    .region-more:focus-visible,.place-area-filter:focus-visible{outline:2px solid var(--amber);outline-offset:4px}
     .places-view .page-desc{max-width:780px;word-break:normal;overflow-wrap:anywhere}
     .places-toolbar{padding:22px 24px;border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:var(--soft)}
     .places-filters{display:flex;flex-wrap:wrap;gap:10px}
+    .places-areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+    .place-area-filter{min-height:44px;padding:8px 13px;border:1px solid transparent;border-radius:999px;background:transparent;color:var(--muted);font-size:.86rem;font-weight:600}
+    .place-area-filter:hover{background:rgba(46,58,52,.05);color:var(--forest)}
+    .place-area-filter[aria-pressed="true"]{background:rgba(197,160,89,.12);border-color:rgba(197,160,89,.3);color:var(--forest)}
     .place-filter{min-height:44px;padding:10px 20px;border:1px solid rgba(46,58,52,.15);border-radius:999px;background:transparent;color:var(--forest);font-weight:600;transition:background .2s,color .2s,border-color .2s}
     .place-filter:hover{background:rgba(46,58,52,.05);border-color:var(--forest)}
     .place-filter[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
@@ -217,6 +225,17 @@
           <button class="place-filter" type="button" data-place-category="觀光茶廠" aria-pressed="false" aria-controls="placesGrid">觀光茶廠</button>
           <button class="place-filter" type="button" data-place-category="體驗遊程" aria-pressed="false" aria-controls="placesGrid">體驗遊程</button>
         </div>
+        <div class="places-areas" role="group" aria-label="依茶鄉篩選場域">
+          <button class="place-area-filter" type="button" data-place-area="全部" aria-pressed="true" aria-controls="placesGrid">全部茶鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="南投市" aria-pressed="false" aria-controls="placesGrid">南投市</button>
+          <button class="place-area-filter" type="button" data-place-area="名間鄉" aria-pressed="false" aria-controls="placesGrid">名間鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="竹山鎮" aria-pressed="false" aria-controls="placesGrid">竹山鎮</button>
+          <button class="place-area-filter" type="button" data-place-area="鹿谷鄉" aria-pressed="false" aria-controls="placesGrid">鹿谷鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="水里鄉" aria-pressed="false" aria-controls="placesGrid">水里鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="魚池鄉" aria-pressed="false" aria-controls="placesGrid">魚池鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="信義鄉" aria-pressed="false" aria-controls="placesGrid">信義鄉</button>
+          <button class="place-area-filter" type="button" data-place-area="仁愛鄉" aria-pressed="false" aria-controls="placesGrid">仁愛鄉</button>
+        </div>
       </div>
       <div class="places-grid" id="placesGrid"></div>
       <noscript><p class="places-empty">請啟用 JavaScript，以瀏覽茶場域與使用分類篩選。</p></noscript>
@@ -272,9 +291,21 @@ astringency:[{score:5,patterns:[/喜歡強烈澀感/,/越澀越好/,/喜歡很�
 aroma:[{score:5,patterns:[/香氣越明顯越好/,/香氣非常明顯/,/喜歡很香/,/要很香/,/超香/,/香氣很重/]},{score:4,patterns:[/香氣明顯/,/喜歡香一點/,/希望香一點/,/比較香/,/茶香明顯/]},{score:2,patterns:[/不用太香/,/不要太香/,/淡淡的茶香/,/淡淡茶香/,/茶香淡淡/,/淡淡的香氣/,/香氣淡淡/]},{score:3,patterns:[/有香氣就好/,/有香就好/,/香氣適中/,/茶香會留在嘴巴/,/香氣會留在嘴巴/,/茶香留在嘴巴/,/香氣留在嘴巴/]},{score:1,patterns:[/香氣淡一點/,/不要香/,/不喜歡香/]}],
 aftertaste:[{score:1,patterns:[/不在意回甘/,/不要回甘/,/不需要回甘/]},{score:5,patterns:[/喝完很久還.*甜/,/回甘很久/,/很有回甘/,/回甘越強越好/,/回甘很強/]},{score:4,patterns:[/喜歡明顯回甘/,/喜歡回甘/,/回甘明顯/,/回甘多一點/,/然後回甘/,/最後回甘/,/尾韻回甘/,/喝完.*回甘/]},{score:3,patterns:[/希望有回甘/,/要有回甘/,/有回甘/,/喝完會甜/,/回甘/]},{score:2,patterns:[/有一點回甘就好/,/回甘一點就好/]}]
 };
-function route(name,push=true){if(!['home','regions','finder','places'].includes(name))name='home';document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+name).classList.add('active');document.querySelectorAll('.nav-btn').forEach(b=>{const active=b.dataset.route===name;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});if(push)history.pushState({route:name},'',name==='home'?'#home':'#'+name);window.scrollTo({top:0,behavior:'smooth'})}
+function route(name,push=true,area='全部',category='全部'){
+  if(!['home','regions','finder','places'].includes(name))name='home';
+  if(name==='places')renderPlaces(category,area);
+  document.querySelectorAll('.view').forEach(view=>view.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(button=>{const active=button.dataset.route===name;button.classList.toggle('active',active);if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')});
+  if(push)history.pushState({route:name},'',name==='places'?placesHash():'#'+name);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function restoreRouteFromHash(){
+  const [name,query='']=(location.hash||'#home').slice(1).split('?'),params=new URLSearchParams(query);
+  route(name,false,params.get('area')||'全部',params.get('category')||'全部');
+}
 document.querySelectorAll('[data-route]').forEach(b=>b.addEventListener('click',()=>route(b.dataset.route)));
-window.addEventListener('popstate',()=>route((location.hash||'#home').slice(1),false));
+window.addEventListener('popstate',restoreRouteFromHash);
 function normalizeText(t){return t.replace(/\s+/g,'').replace(/[，。！？、,.!?]/g,'')}
 function parseExplicitTaste(text){const n=normalizeText(text),r={};Object.entries(rules).forEach(([k,levels])=>{for(const l of levels){if(l.patterns.some(p=>p.test(n))){r[k]=l.score;break}}});return {...r,...selectedQuick}}
 function analyzePreference(text){
@@ -336,7 +367,7 @@ function runMatch(){
   setTimeout(()=>document.getElementById('analysisPanel').scrollIntoView({behavior:'smooth',block:'start'}),50);
 }
 document.querySelectorAll('.chip[data-key]').forEach(c=>c.addEventListener('click',()=>{const k=c.dataset.key;if(c.classList.contains('active')){delete selectedQuick[k];c.classList.remove('active')}else{selectedQuick[k]=Number(c.dataset.value);c.classList.add('active')}}));document.getElementById('clearBtn').addEventListener('click',()=>{Object.keys(selectedQuick).forEach(k=>delete selectedQuick[k]);document.querySelectorAll('.chip.active').forEach(c=>c.classList.remove('active'));document.getElementById('tasteInput').value='';document.getElementById('errorCard').classList.remove('show')});document.getElementById('findBtn').addEventListener('click',runMatch);document.getElementById('tasteInput').addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter')runMatch()});document.getElementById('resetBtn').addEventListener('click',()=>{Object.keys(selectedQuick).forEach(k=>delete selectedQuick[k]);document.querySelectorAll('.chip.active').forEach(c=>c.classList.remove('active'));document.getElementById('tasteInput').value='';document.getElementById('analysisPanel').classList.remove('show');document.getElementById('resultsPanel').classList.remove('show');document.getElementById('errorCard').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'})});
-document.getElementById('regionGrid').innerHTML=regions.map((r,i)=>`<article class="region-card" style="--region-color:${r.color}"><div class="region-no">0${i+1}</div><h3>${r.name}</h3><dl><div><dt>主要品種</dt><dd>${r.varieties}</dd></div><div><dt>區域特色</dt><dd>${r.feature}</dd></div></dl><span class="feature">${r.feature}</span></article>`).join('');
+document.getElementById('regionGrid').innerHTML=regions.map(r=>`<article class="region-card" style="--region-color:${r.color}"><h3>${r.name}</h3><dl><div><dt>主要品種</dt><dd>${r.varieties}</dd></div><div><dt>區域特色</dt><dd>${r.feature}</dd></div></dl><span class="feature">${r.feature}</span><button class="region-more" type="button" data-region-places="${r.name}" aria-label="查看${r.name}的更多茗家">更多茗家 <span aria-hidden="true">→</span></button></article>`).join('');
 // 嚴選茗家：使用者提供的場域資料，categories 可跨分類。
 // 缺漏地址與網站依場域官網／政府資料補齊；不顯示地址空白的場域。
 // id 依清單順序連續編碼，僅供程式識別，不在網頁上顯示。
@@ -579,7 +610,16 @@ const teaPlaces=[
   }
 ];
 const placeCategories=['全部','茶葉販售','品茶空間','觀光茶廠','體驗遊程'];
+const placeAreas=['全部',...regions.map(region=>region.name)];
 let selectedPlaceCategory='全部';
+let selectedPlaceArea='全部';
+function normalizePlaceArea(area){return String(area).replace(/[鄉鎮]$/u,'')}
+function placesHash(){
+  const params=new URLSearchParams();
+  if(selectedPlaceArea!=='全部')params.set('area',selectedPlaceArea);
+  if(selectedPlaceCategory!=='全部')params.set('category',selectedPlaceCategory);
+  return '#places'+(params.size?'?'+params.toString():'');
+}
 function escapePlaceText(value){return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
 function formatPlaceName(name){
   const bilingual=name.match(/^([A-Za-z][\x20-\x7E]*?)\s+([\u3400-\u9fff].*)$/u);
@@ -592,10 +632,14 @@ function placeExternalLink(place,url,label){
   try{if(!['https:','http:'].includes(new URL(url).protocol))return ''}catch{return ''}
   return `<a class="place-link" href="${escapePlaceText(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapePlaceText(place.name)}${escapePlaceText(label)}（另開視窗）">${escapePlaceText(label)} ↗</a>`;
 }
-function renderPlaces(category=selectedPlaceCategory){
+function renderPlaces(category=selectedPlaceCategory,area=selectedPlaceArea){
   selectedPlaceCategory=placeCategories.includes(category)?category:'全部';
-  const visible=teaPlaces.filter(place=>place.address?.trim()&&(selectedPlaceCategory==='全部'||place.categories.includes(selectedPlaceCategory)));
+  selectedPlaceArea=placeAreas.find(value=>normalizePlaceArea(value)===normalizePlaceArea(area))||'全部';
+  const inArea=teaPlaces.filter(place=>place.address?.trim()&&(selectedPlaceArea==='全部'||normalizePlaceArea(place.area)===normalizePlaceArea(selectedPlaceArea)));
+  const visible=inArea.filter(place=>selectedPlaceCategory==='全部'||place.categories.includes(selectedPlaceCategory));
   document.querySelectorAll('[data-place-category]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.placeCategory===selectedPlaceCategory)));
+  document.querySelectorAll('[data-place-area]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.placeArea===selectedPlaceArea)));
+  const emptyMessage=selectedPlaceArea!=='全部'&&!inArea.length?`目前尚未收錄${selectedPlaceArea}的茗家，請選擇其他茶鄉。`:'目前沒有符合所選茶鄉與服務分類的茗家，請更換服務分類或選擇其他茶鄉。';
   document.getElementById('placesGrid').innerHTML=visible.length?visible.map(place=>{
     const mapUrl=place.address?'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(place.name+' '+place.address):'';
     const links=placeExternalLink(place,place.website,place.websiteLabel||'官方網站')+placeExternalLink(place,place.bookingUrl,'活動與預約')+placeExternalLink(place,mapUrl,'查看地圖');
@@ -611,11 +655,13 @@ function renderPlaces(category=selectedPlaceCategory){
       ${facts?`<dl class="place-facts">${facts}</dl>`:''}
       ${links?`<div class="place-links">${links}</div>`:''}
     </article>`;
-  }).join(''):'<p class="places-empty">目前尚無符合這個分類的場域，請選擇其他分類。</p>';
+  }).join(''):`<p class="places-empty" role="status">${escapePlaceText(emptyMessage)}</p>`;
 }
-document.querySelectorAll('[data-place-category]').forEach(button=>button.addEventListener('click',()=>renderPlaces(button.dataset.placeCategory)));
+document.querySelectorAll('[data-place-category]').forEach(button=>button.addEventListener('click',()=>{renderPlaces(button.dataset.placeCategory);history.replaceState({route:'places'},'',placesHash())}));
+document.querySelectorAll('[data-place-area]').forEach(button=>button.addEventListener('click',()=>{renderPlaces(selectedPlaceCategory,button.dataset.placeArea);history.replaceState({route:'places'},'',placesHash())}));
+document.querySelectorAll('[data-region-places]').forEach(button=>button.addEventListener('click',()=>route('places',true,button.dataset.regionPlaces)));
 renderPlaces();
-route((location.hash||'#home').slice(1),false);
+restoreRouteFromHash();
 </script>
 </body>
 </html>
